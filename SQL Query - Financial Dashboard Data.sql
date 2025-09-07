@@ -48,9 +48,9 @@ CREATE TABLE cust_detail (
 );
 
 
--- 3. Copy csv data into SQL (remember to update the file name and file location in below query)
+-- 3. Copy csv data into SQL 
 
--- copy cc_detail table
+
 
 COPY cc_detail
 FROM 'D:\credit_card.csv' 
@@ -67,21 +67,13 @@ CSV HEADER;
 
 
 
--- If you are getting below error, then use the below point:  
-   -- ERROR:  date/time field value out of range: "0"
-   -- HINT:  Perhaps you need a different "datestyle" setting.
-
--- Check the Data in Your CSV File: Ensure date column values are formatted correctly and are in a valid format that PostgreSQL can recognize (e.g., YYYY-MM-DD). And correct any incorrect or missing date values in the CSV file. 
-   -- or
--- Update the Datestyle Setting: Set the datestyle explicitly for your session using the following command:
 SET datestyle TO 'ISO, DMY';
 
--- Now, try to COPY the csv files!
 
 
 -- 4. Insert additional data into SQL, using same COPY function
 
--- copy additional data (week-53) in cc_detail table
+
 
 COPY cc_detail
 FROM 'D:\cc_add.csv' 
@@ -89,7 +81,6 @@ DELIMITER ','
 CSV HEADER;
 
 
--- copy additional data (week-53) in cust_detail table (remember to update the file name and file location in below query)
 
 COPY cust_detail
 FROM 'D:\cust_add.csv' 
